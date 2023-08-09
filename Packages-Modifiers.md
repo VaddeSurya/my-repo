@@ -89,4 +89,4 @@ Practically we serialized only those fields which represent a state of instance,
 6. volatile - Using volatile is yet another way (like synchronized, atomic wrapper) of making class thread-safe. Thread-safe means that a method or class instance can be used by multiple threads at the same time without any problem. volatile keyword here makes sure that the changes made in one thread are immediately reflect in other thread
 
 7. native - The native keyword in Java is applied to a method to indicate that the method is implemented in native code. The methods which are implemented in C, C++ are called native methods or foreign methods. native keyword can only be applied to those methods.
-// Commit timestamp: 2025-06-14 09:17:00
+// Commit timestamp: 2023-08-09 20:28:00
