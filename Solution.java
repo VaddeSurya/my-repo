@@ -1,55 +1,48 @@
 class Solution {
-    public int minimizedMaximum(int n, int[] quantities) {
-        
-        int start = 1; // to avoid divide by zero error
-        int end = Integer.MIN_VALUE; // for finding the max value.
+    public int kthSmallest(int[][] matrix, int k) {
+           // code here
+        // total elements
+        int R = matrix.length;
+        int C = matrix[0].length;
+        int N = R*C;
+        int requiredSmallerElements = k;  //N/2;
+        int start = matrix[0][0]; //1;
+        int end = matrix[R-1][C-1]; //2000;
 
-        for(int i=0;i<quantities.length;i++){
-            if(quantities[i]>end){
-                end = quantities[i];
-            }
-        }
-
-        int res = -1;
-
-        while(start<=end){
-            int mid = start + (end-start)/2;
-            if(isDistributionPossible(quantities, mid, n)){
-                res = mid;
-                end = mid-1;
+        while (start<=end){
+            int assumedKthElement = start + (end-start)/2;
+            // no of elements less than assumed median.
+            // k -> lesserElements
+            int smallerElements = findSmallerElements(matrix, assumedKthElement);
+            if(smallerElements < requiredSmallerElements){
+              start = assumedKthElement+1;
             } else {
-                start = mid+1;
+                end = assumedKthElement-1;
             }
         }
-        return res;
+        return start;
     }
-    boolean isDistributionPossible(int quantities[], int maxProducts, int stores) {
-        int storeCount = 0;
-        for(int i=0;i<quantities.length;i++){
-            storeCount += quantities[i]/maxProducts;
-            if(quantities[i]%maxProducts!=0){
-                storeCount+=1;
+    int findSmallerElements(int matrix[][], int assumedMedian){
+        int noOfSmallerElements = 0;
+        // traverse row by row
+        for(int i=0;i<matrix.length;i++){
+            // matrix[i] -> 0,1,2
+            // apply binary search on matrix[i]
+//            int arr[] = matrix[i];
+            int start = 0;
+            int end = matrix[i].length-1;
+            while (start<=end){
+                int mid = start + (end-start)/2;
+                if(matrix[i][mid] <= assumedMedian){
+                    start = mid+1;
+                } else {
+                    end = mid-1;
+                }
             }
-            if(storeCount>stores) {
-                return false;
-            }
+            // start.
+            noOfSmallerElements += start;
         }
-        return true;
-
+        return noOfSmallerElements;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Commit timestamp: 2023-08-26 20:45:00
+// Commit timestamp: 2023-08-31 11:03:00
