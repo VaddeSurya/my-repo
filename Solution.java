@@ -1,48 +1,49 @@
 class Solution {
-    public int kthSmallest(int[][] matrix, int k) {
-           // code here
-        // total elements
-        int R = matrix.length;
-        int C = matrix[0].length;
-        int N = R*C;
-        int requiredSmallerElements = k;  //N/2;
-        int start = matrix[0][0]; //1;
-        int end = matrix[R-1][C-1]; //2000;
+    public boolean searchMatrix(int[][] matrix, int target) {
+        if(matrix.length == 0) {
+            return false;
+        }
+        int m = matrix.length; // rows
+        int n = matrix[0].length; // col
+        int start = 0;
+        int end = m*n-1;
 
-        while (start<=end){
-            int assumedKthElement = start + (end-start)/2;
-            // no of elements less than assumed median.
-            // k -> lesserElements
-            int smallerElements = findSmallerElements(matrix, assumedKthElement);
-            if(smallerElements < requiredSmallerElements){
-              start = assumedKthElement+1;
+        while(start<=end){
+            int mid = start+(end-start)/2;
+            int r = mid/n;
+            int c = mid%n;
+            int val = matrix[r][c];
+            if(val == target) {
+                return true;
+            } else if(target<val){
+                end = mid-1; 
             } else {
-                end = assumedKthElement-1;
+                start = mid+1;
             }
         }
-        return start;
+        return false;
     }
-    int findSmallerElements(int matrix[][], int assumedMedian){
-        int noOfSmallerElements = 0;
-        // traverse row by row
-        for(int i=0;i<matrix.length;i++){
-            // matrix[i] -> 0,1,2
-            // apply binary search on matrix[i]
-//            int arr[] = matrix[i];
-            int start = 0;
-            int end = matrix[i].length-1;
-            while (start<=end){
-                int mid = start + (end-start)/2;
-                if(matrix[i][mid] <= assumedMedian){
-                    start = mid+1;
-                } else {
-                    end = mid-1;
-                }
-            }
-            // start.
-            noOfSmallerElements += start;
+
+   public boolean searchMatrix2(int[][] matrix, int target) {
+        if(matrix.length==0){
+            return false;
         }
-        return noOfSmallerElements;
+        int Rows = matrix.length;
+        int Cols = matrix[0].length;
+        int r = 0;
+        int c = Cols-1;
+        while(r < Rows && c >=0) {
+            if(matrix[r][c] == target) {
+                return true;
+            } else if(target < matrix[r][c]){
+                c = c-1;
+            } else {
+                r = r+1;
+            }
+        }
+        return false;
+        
     }
+
 }
-// Commit timestamp: 2023-08-31 11:03:00
+// Commit timestamp: 2023-08-31 22:41:00
