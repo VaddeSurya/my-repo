@@ -1,49 +1,81 @@
-class Solution {
-    public boolean searchMatrix(int[][] matrix, int target) {
-        if(matrix.length == 0) {
-            return false;
-        }
-        int m = matrix.length; // rows
-        int n = matrix[0].length; // col
-        int start = 0;
-        int end = m*n-1;
+import java.util.*;
 
-        while(start<=end){
-            int mid = start+(end-start)/2;
-            int r = mid/n;
-            int c = mid%n;
-            int val = matrix[r][c];
-            if(val == target) {
-                return true;
-            } else if(target<val){
-                end = mid-1; 
-            } else {
-                start = mid+1;
+public class Solution {
+    public List<Integer> spiralMatrix1(int[][] matrix) {
+        List<Integer> result = new ArrayList<>();
+        int n = matrix.length;
+        int m = matrix[0].length;
+        int startRow=0;
+        int endRow=n-1;
+        int startCol=0;
+        int endCol=m-1;
+
+        while(startRow<=endRow && startCol<=endCol){
+            // first Row
+            for(int j=startCol;j<=endCol;j++){
+                result.add(matrix[startRow][j]);
+            }
+            startRow+=1;
+            // end Col
+            for(int i=startRow;i<=endRow;i++){
+                result.add(matrix[i][endCol]);
+            }
+            endCol-=1;
+            if(startRow<=endRow){
+                // last Row
+                for(int j=endCol;j>=startCol;j--){
+                    result.add(matrix[endRow][j]);
+                }
+                endRow-=1;
+            }
+            if(startCol<=endCol) {
+                // first Col
+                for(int i=endRow;i>=startRow;i--){
+                    result.add(matrix[i][startCol]);
+                }
+                startCol+=1;
             }
         }
-        return false;
+        return result;
     }
-
-   public boolean searchMatrix2(int[][] matrix, int target) {
-        if(matrix.length==0){
-            return false;
-        }
-        int Rows = matrix.length;
-        int Cols = matrix[0].length;
-        int r = 0;
-        int c = Cols-1;
-        while(r < Rows && c >=0) {
-            if(matrix[r][c] == target) {
-                return true;
-            } else if(target < matrix[r][c]){
-                c = c-1;
-            } else {
-                r = r+1;
+    public int[][] spiralMatrix2(int n) {
+        int matrix[][] = new int[n][n];
+        int startRow=0;
+        int endRow=n-1;
+        int startCol=0;
+        int endCol=n-1;
+        int val = 1;
+        while(startRow<=endRow && startCol<=endCol){
+            // fill first Row
+            for(int j=startCol;j<=endCol;j++){
+                matrix[startRow][j] = val;
+                val+=1;
+            }
+            startRow+=1;
+            // fill end Col
+            for(int i=startRow;i<=endRow;i++){
+                matrix[i][endCol] = val;
+                val+=1;
+            }
+            endCol-=1;
+            if(startRow<=endRow){
+                // fill last Row
+                for(int j=endCol;j>=startCol;j--){
+                    matrix[endRow][j] = val;
+                    val+=1;
+                }
+                endRow-=1;
+            }
+            if(startCol<=endCol) {
+                // fill first Col
+                for(int i=endRow;i>=startRow;i--){
+                    matrix[i][startCol] = val;
+                    val+=1;
+                }
+                startCol+=1;
             }
         }
-        return false;
-        
+        return matrix;
     }
-
 }
-// Commit timestamp: 2024-08-22 09:50:00
+// Commit timestamp: 2024-08-22 20:51:00
