@@ -1,29 +1,14 @@
-// package 2D-Arrays;
-// so form here we gonna start the 2d arrays;
-
-import java.util.Scanner;
+package BitManipulation;
 
 public class start {
     public static void main(String[] args) {
-        int Matrix [][] = new int[3][3];
-        int n = 3;
-        int m=3;
-
-     Scanner sc = new Scanner(System.in);
-     for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            Matrix[i][j] = sc.nextInt();
-        }
-     }
-
-
-     for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            System.out.print(Matrix[i][j] + " ");
-        }
-     }
-     System.out.println();
+        System.out.println(5&6);
     }
 }
 
-// Commit timestamp: 2024-10-05 19:46:00
+// chaeck the condition for the decimal and binary what the output
+// and the output is 4 
+// 5 and 6 convert into bits and checking there bits and gets the output
+
+// the answer is 4 bro
+// Commit timestamp: 2024-10-13 11:57:00
