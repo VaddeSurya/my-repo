@@ -1,14 +1,18 @@
-package BitManipulation;
+// oops are the bsiaclly help to solve real world problem using the coding 
+
+// there are multiple keywords and stuff are there ,
+
+
+// 1 class,Object :-
+
+// object is the real world entitys
+// class is the blueprint of the any object 
+
 
 public class start {
     public static void main(String[] args) {
-        System.out.println(5&6);
+        
     }
 }
 
-// chaeck the condition for the decimal and binary what the output
-// and the output is 4 
-// 5 and 6 convert into bits and checking there bits and gets the output
-
-// the answer is 4 bro
-// Commit timestamp: 2024-10-13 11:57:00
+// Commit timestamp: 2024-10-16 10:26:00
