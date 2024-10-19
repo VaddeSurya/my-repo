@@ -1,33 +1,19 @@
-package Recursion;
+public  class issorted {
 
 
-// check the given number is sorted or not;
-// array 
-// index 
-// and range
-
-
-public class issorted {
-
-    public static boolean check(int array[], int i) {
-
-        if(i==array.length-1){
-            return true;
-        }
-
-
-        if(array[i] >array[i+1]){
+   public static boolean issort(int num[]){
+    for(int i=1; i<num.length; i++){
+        if(num[i] < num[i-1]){
             return false;
         }
-        
-        return check(array, i+1);
-
-
     }
+    return true;
+   }
+
     public static void main(String[] args) {
-        int array[]= {1,2,3,4,5,6,7};
-        System.out.println(check(array, 5));
+        int num[] = {1,5,3,4,5,6};
+        System.out.println(issort(num));
+
     }
 }
-
-// Commit timestamp: 2023-11-22 14:03:00
+// Commit timestamp: 2024-10-19 11:19:00
