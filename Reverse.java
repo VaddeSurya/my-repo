@@ -1,40 +1,27 @@
-package Tcs.Array;
-
-// here the givn string and the array i have to rotate
-
-import java.util.Scanner;
-
-// so its can be benifitials
-// i will use the reverse method to reverse the array
-
+package Questions.Strings;
 
 public class Reverse {
 
-    public static void reverseArray(int arr[]){
+    public static String reverse(String str){
+        char[] charArray = str.toCharArray();
         int left = 0;
-        int right = arr.length-1;
+        int right =str.length() -1;
 
-        while(left < right){
-            int temp = arr[left];
-            arr[left] = arr[right];
-            arr[right] = temp;
+
+        while (left<right) { 
+            char temp = charArray[left];
+            charArray[left] = charArray[right];
+            charArray[right] = temp;
             left++;
             right--;
         }
-
-
+        return new String(charArray);
     }
     public static void main(String[] args) {
-        System.out.println("Enetr your array");
-        // Scanner Sc = new Scanner(System.in);
-        // int arr[] = Sc.nextInt();
-        int arr[] = {1,2,3,4,5,6,7,8,9,10};
-        reverseArray(arr);
-        for(int num : arr){
-            System.out.print(num + " ");
-        }
+        String str = "harsh";
+        String result = reverse(str);
+        System.out.println(result);
     }
 }
 
-// add the user input here wow
-// Commit timestamp: 2023-12-04 11:59:00
+// Commit timestamp: 2024-10-22 11:04:00
