@@ -1,18 +1,27 @@
-// oops are the bsiaclly help to solve real world problem using the coding 
+package Strings;
 
-// there are multiple keywords and stuff are there ,
-
-
-// 1 class,Object :-
-
-// object is the real world entitys
-// class is the blueprint of the any object 
-
+import java.util.Scanner;
 
 public class start {
-    public static void main(String[] args) {
-        
-    }
+
+    // different of strings and arrays
+    char arr[] = {'a','b','c'};
+
+    // way to define strings
+    String str = "abcd";
+    String str2 = new String("xyz");
+
+    // java string is immutable
+    // java is primitive data type
+
+
+
+    // string in-op
+    Scanner sc = new Scanner(System.in);
+    String name;
+    name = sc.nextLine();
+    System.out.println(name);
+}
 }
 
-// Commit timestamp: 2024-10-16 10:26:00
+// Commit timestamp: 2024-10-30 22:34:00
