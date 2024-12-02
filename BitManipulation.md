@@ -100,4 +100,4 @@ So, we can conclude that,
 A number x is a power of y when (x)ᵧ has '1' at the left most bit and
 remaining all '0'
 
-// Commit timestamp: 2024-08-11 08:34:00
+// Commit timestamp: 2024-12-02 11:52:00
