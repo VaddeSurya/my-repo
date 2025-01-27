@@ -29,4 +29,4 @@ public class Bionomial {
 // then bionomial function which includes the para
 // in main function we just call what we want
 // simple
-// Commit timestamp: 2024-10-06 11:30:00
+// Commit timestamp: 2025-01-27 11:09:00
