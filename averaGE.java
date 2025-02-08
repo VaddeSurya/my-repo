@@ -1,37 +1,19 @@
-import java.util.Scanner;
+public class Average {
 
-public class averaGE {
+    public static int avg(int num[]){
+        int sum = 0;
+        for (int i = 0; i < num.length; i++) {
+            sum +=num[i];
+        }
+        int averageg = sum /num.length;
+        return averageg;
+    }
+
     public static void main(String[] args) {
-        System.out.println("in this we make average of 3 numbers");
-        Scanner sc = new Scanner(System.in);
-
-        // average of 3
-        int a = sc.nextInt();
-        int b = sc.nextInt();
-        int c = sc.nextInt();
-
-        int sum = (a + b + c / 3);
-        System.out.println(sum);
-
-
-        // side of square
-        System.out.println("its time to square");
-        int aa = sc.nextInt();
-        int summ = (aa*aa);
-        System.out.println(summ);
-
-
-        float pencil = sc.nextFloat();
-                float pen = sc.nextFloat();
-                        float eraser = sc.nextFloat();
-                         float sum = (pencil + pen + eraser );
-                         System.out.println(sum);
-
-                         float newTotal = sum + (0.18f * sum);
-                         System.out.println(newTotal);
-
+        int num[] = {10,10,10};
+        System.out.println(avg(num));
 
     }
 }
-// simple
-// Commit timestamp: 2025-01-19 12:36:00
+
+// Commit timestamp: 2025-02-08 09:28:00
