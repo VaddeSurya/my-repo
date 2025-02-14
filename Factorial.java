@@ -1,21 +1,32 @@
-public class Factorial {
+package Recursion;
 
-    public static int factorial(int n){
-        int f = 1;
-        for(int i = 1; i<=n ; i++){
-            f = f*i;
+
+//print the factorial numbers in java
+
+
+public class factorial {
+
+
+    public static int fact(int n ) {
+
+        if(n==1){
+            return n ;
         }
-        return f;
+        
+        int fnm1 = fact(n-1);
+        int main = n * fnm1;
+        return main;
     }
     public static void main(String[] args) {
-        System.out.println(factorial(4));
-
+        System.out.println(fact(4));
+        
     }
 }
 
 
-// so basically n for the number range
-// i for loop untill n
-// f for factorial where start from 1 to range n
-// just print in main function
-// Commit timestamp: 2025-01-28 15:11:00
+// logic
+// the logic of the factorial is n into n-1 
+// untill the given number is there
+// firstly goes to numbr and add recursive approach to multiplication in all 
+// until aall the call stack
+// Commit timestamp: 2025-02-14 10:56:00
