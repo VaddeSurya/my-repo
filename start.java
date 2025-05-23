@@ -1,27 +1,29 @@
-package Strings;
+// package 2D-Arrays;
+// so form here we gonna start the 2d arrays;
 
 import java.util.Scanner;
 
 public class start {
+    public static void main(String[] args) {
+        int Matrix [][] = new int[3][3];
+        int n = 3;
+        int m=3;
 
-    // different of strings and arrays
-    char arr[] = {'a','b','c'};
-
-    // way to define strings
-    String str = "abcd";
-    String str2 = new String("xyz");
-
-    // java string is immutable
-    // java is primitive data type
+     Scanner sc = new Scanner(System.in);
+     for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            Matrix[i][j] = sc.nextInt();
+        }
+     }
 
 
-
-    // string in-op
-    Scanner sc = new Scanner(System.in);
-    String name;
-    name = sc.nextLine();
-    System.out.println(name);
+     for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            System.out.print(Matrix[i][j] + " ");
+        }
+     }
+     System.out.println();
+    }
 }
-}
 
-// Commit timestamp: 2025-02-21 20:09:00
+// Commit timestamp: 2025-05-23 09:48:00
