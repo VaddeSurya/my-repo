@@ -1,100 +1,71 @@
-public class BinarySearch{
+public class BinarySearch {
     public static void main(String[] args) {
-        int books[] = {12,34,67,90};
-        bookAllocation(books,2);
+        int arr[] = {2,5,7,11,45,87,90};
+        int arr2[] = {90,87,54,36,22,1};
+        binarySearch(arr, 87);
+        binarySearchDesc(arr2,54);
+        binarySearchOrderAgnostic(arr2,510);
+        binarySearchOrderAgnostic(arr,871);
+
+
     }
-
-    public static int bookAllocation(int books[], int students){
-        if(books.length < students)
-        {
-            return -1;
+    static void binarySearchOrderAgnostic(int arr[], int target){
+        int start = 0;
+        int end = arr.length-1;
+        if(arr[start]<=arr[end]){
+            binarySearch(arr,target);
         }
-        // range will be max of array and sum of array..
-        int start = Integer.MIN_VALUE; // for finding max element
-        int end = 0; // sum of array.
-
-        for(int i=0;i<books.length;i++){
-            if(books[i]>start){
-                start = books[i];
-            }
-            end = end + books[i];
+        else {
+            binarySearchDesc(arr,target);
         }
-        int res = -1;
-
-        while(start<=end){
-            // max pages that can be allocated to single student.
+    }
+    static void binarySearch(int arr[], int target){
+        int ans = -1;
+        int start = 0;
+        int end = arr.length-1;
+        while (start<=end){
             int mid = start + (end-start)/2;
-            // if allocation is possible then minimize the number of pages
-            if(isAllocationPossible(books,mid,students)){
-                res = mid;
+            if(arr[mid] == target){
+                ans = mid;
+                break;
+            } else if(arr[mid]<target){
+                start = mid+1;
+            } else {
+                end = mid-1;
+            }
+        }
+        if (ans == -1){
+            System.out.println("Element not found");
+        }
+        else {
+            System.out.println("Found element "+ target+ " at index : "+ ans);
+        }
+
+
+    }
+    static void binarySearchDesc(int arr[], int target){
+        int ans = -1;
+        int start = 0;
+        int end = arr.length-1;
+        while (start<=end){
+            int mid = start + (end-start)/2;
+            if(arr[mid] == target){
+                ans = mid;
+                break;
+            } else if(arr[mid]<target){
                 end = mid-1;
             } else {
                 start = mid+1;
             }
         }
-        return res;
-    }
-
-    static boolean isAllocationPossible(int books[], int maxPages, int students){
-        int currentStudent = 1;
-        int pages = 0;
-        for(int i=0;i<books.length;i++){
-            pages += books[i];
-            // if pages exceed maxPages
-            if(pages>maxPages){
-                // allocate to next student
-                currentStudent+=1;
-                pages = books[i];
-            }
-            if(currentStudent > students) {
-                return false;
-            }
+        if (ans == -1){
+            System.out.println("Element not found");
         }
-        return true;
-    }
-    public int shipWithinDays(int[] weights, int days) {
-        // range will be max of array and sum of array..
-        int start = Integer.MIN_VALUE; // for finding max element
-        int end = 0; // sum of array.
-
-        for(int i=0;i<weights.length;i++){
-            if(weights[i]>start){
-                start = weights[i];
-            }
-            end = end + weights[i];
+        else {
+            System.out.println("Found element "+ target+ " at index : "+ ans);
         }
-        int res = -1;
 
-        while(start<=end){
-            // max capacity that can be shipped int one day.
-            int mid = start + (end-start)/2;
-            // if shipment is possible then minimize the capacity
-            if(isShipmentPossible(weights,mid,days)){
-                res = mid;
-                end = mid-1;
-            } else {
-                start = mid+1;
-            }
-        }
-        return res;
-    }
 
-    static boolean isShipmentPossible(int weights[], int maxCapacity, int days){
-        int currentDay = 1;
-        int capacity = 0;
-        for(int i=0;i<weights.length;i++){
-            capacity += weights[i];
-            // if capacity exceed maxCapacity
-            if(capacity>maxCapacity){
-                // ship on the next day
-                currentDay+=1;
-                capacity = weights[i];
-            }
-            if(currentDay > days) {
-                return false;
-            }
-        }
-        return true;
     }
 }
 
@@ -108,6 +79,4 @@ public class BinarySearch{
 
 
 
-
-
-// Commit timestamp: 2024-10-02 09:12:00
+// Commit timestamp: 2025-07-10 08:04:00
